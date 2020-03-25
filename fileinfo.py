@@ -20,4 +20,10 @@ def openfile():
         #读入新的文档
         text.insert(1.0,f.read())
         f.close()
+#新建文档
+def new():
+    window.title('新建文档')
+    filename = None
+    text.delete(1.0,END)
+
         
