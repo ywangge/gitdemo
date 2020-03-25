@@ -26,4 +26,27 @@ def new():
     filename = None
     text.delete(1.0,END)
 
+#保存
+def save():
+    try:
+        f = open(filename,'w')
+        content = text.get(1.0,END)
+        f.write(content)
+        f.close()
+    except:
+        #如果这是一个新建的文档保存，就用saveas指令
+        saveas()
+ 
+ #另存为
+def saveas():
+    f = asksaveasfilename(initialfile= '新建文档', defaultextension='.txt')
+    filename = f
+    window.title(os.path.basename(f))
+    fw = open(f,'w')
+    content = text.get(1.0,END)
+    fw.write(content)
+    fw.close()
+    window.title(os.path.basename(f))
+
+
         
